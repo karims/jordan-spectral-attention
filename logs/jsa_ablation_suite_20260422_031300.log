@@ -1,0 +1,1922 @@
+
+======================================================================
+[2026-04-22 03:13:00] SUITE CONFIG
+======================================================================
+OUTDIR=logs
+SUITE_LOG=logs/jsa_ablation_suite_20260422_031300.log
+ITERATIONS=500
+TRAIN_BATCH_TOKENS=8192
+VAL_BATCH_SIZE=8192
+VAL_LOSS_EVERY=0
+VAL_MAX_SEQS=512
+SEEDS=1337 1338
+JSA_RANK=4
+JSA_LOCAL_K=2
+
+======================================================================
+[2026-04-22 03:13:00] BEGIN RUN: baseline_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=baseline_500_seed1337 SEED=1337 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx.py
+logs/baseline_500_seed1337.txt
+run_id:baseline_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9428 train_time:1866ms step_avg:1865.73ms tok_s:4391
+step:2/500 train_loss:18.7863 train_time:4098ms step_avg:2049.03ms tok_s:3670
+step:3/500 train_loss:17.0338 train_time:6325ms step_avg:2108.22ms tok_s:3680
+step:4/500 train_loss:14.8965 train_time:8604ms step_avg:2150.88ms tok_s:3596
+step:5/500 train_loss:12.7616 train_time:10800ms step_avg:2160.09ms tok_s:3729
+step:6/500 train_loss:10.5852 train_time:12965ms step_avg:2160.82ms tok_s:3785
+step:7/500 train_loss:8.9822 train_time:15254ms step_avg:2179.20ms tok_s:3578
+step:8/500 train_loss:7.8971 train_time:17442ms step_avg:2180.22ms tok_s:3746
+step:9/500 train_loss:7.1789 train_time:19618ms step_avg:2179.81ms tok_s:3764
+step:10/500 train_loss:6.6069 train_time:21685ms step_avg:2168.50ms tok_s:3965
+step:200/500 train_loss:3.8044 train_time:201614ms step_avg:1008.07ms tok_s:8756
+step:400/500 train_loss:3.4857 train_time:386132ms step_avg:965.33ms tok_s:8937
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.4119 val_bpb:2.0536 train_time:480443ms step_avg:960.89ms
+saved_model:logs/baseline_500_seed1337_mlx_model.npz bytes:67212188
+serialized_model_int8_zlib:10160948 bytes (payload:17178912 raw_pickle:17188361 payload_ratio:3.91x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.4149 val_bpb:2.0554 eval_time:11314ms
+final_int8_zlib_roundtrip_exact val_loss:3.41494718 val_bpb:2.05541699
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:22:05] END RUN: baseline_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 03:22:05] SUMMARY EXTRACT: baseline_500_seed1337
+======================================================================
+run_id:baseline_500_seed1337
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+run_id:baseline_500_seed1337
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+run_id:baseline_500_seed1337
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.8044 train_time:201614ms step_avg:1008.07ms tok_s:8756
+step:400/500 train_loss:3.4857 train_time:386132ms step_avg:965.33ms tok_s:8937
+step:500/500 val_loss:3.4119 val_bpb:2.0536 train_time:480443ms step_avg:960.89ms
+saved_model:logs/baseline_500_seed1337_mlx_model.npz bytes:67212188
+serialized_model_int8_zlib:10160948 bytes (payload:17178912 raw_pickle:17188361 payload_ratio:3.91x)
+final_int8_zlib_roundtrip_exact val_loss:3.41494718 val_bpb:2.05541699
+
+======================================================================
+[2026-04-22 03:22:05] BEGIN RUN: jsa_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last3_500_seed1337.txt
+run_id:jsa_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:651ms step_avg:651.49ms tok_s:12574
+step:2/500 train_loss:9.6112 train_time:1440ms step_avg:719.97ms tok_s:10402
+step:3/500 train_loss:8.5497 train_time:2240ms step_avg:746.77ms tok_s:10238
+step:4/500 train_loss:8.8156 train_time:3034ms step_avg:758.50ms tok_s:10324
+step:5/500 train_loss:8.4016 train_time:3820ms step_avg:764.09ms tok_s:10418
+step:6/500 train_loss:8.0845 train_time:4609ms step_avg:768.15ms tok_s:10393
+step:7/500 train_loss:7.9111 train_time:5411ms step_avg:772.97ms tok_s:10218
+step:8/500 train_loss:7.3732 train_time:6208ms step_avg:775.98ms tok_s:10280
+step:9/500 train_loss:7.2981 train_time:7054ms step_avg:783.76ms tok_s:9685
+step:10/500 train_loss:6.9982 train_time:7907ms step_avg:790.69ms tok_s:9610
+step:200/500 train_loss:3.6717 train_time:165127ms step_avg:825.64ms tok_s:11063
+step:400/500 train_loss:3.2021 train_time:313250ms step_avg:783.12ms tok_s:11076
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.0801 val_bpb:1.8539 train_time:387407ms step_avg:774.81ms
+saved_model:logs/jsa_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9450584 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.0836 val_bpb:1.8560 eval_time:8164ms
+final_int8_zlib_roundtrip_exact val_loss:3.08363010 val_bpb:1.85600109
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:29:05] END RUN: jsa_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 03:29:05] SUMMARY EXTRACT: jsa_last3_500_seed1337
+======================================================================
+run_id:jsa_last3_500_seed1337
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6717 train_time:165127ms step_avg:825.64ms tok_s:11063
+step:400/500 train_loss:3.2021 train_time:313250ms step_avg:783.12ms tok_s:11076
+step:500/500 val_loss:3.0801 val_bpb:1.8539 train_time:387407ms step_avg:774.81ms
+saved_model:logs/jsa_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9450584 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.08363010 val_bpb:1.85600109
+
+======================================================================
+[2026-04-22 03:29:05] BEGIN RUN: baseline_500_seed1338
+======================================================================
+COMMAND: env RUN_ID=baseline_500_seed1338 SEED=1338 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx.py
+logs/baseline_500_seed1338.txt
+run_id:baseline_500_seed1338
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9465 train_time:724ms step_avg:723.56ms tok_s:11322
+step:2/500 train_loss:18.9383 train_time:1569ms step_avg:784.29ms tok_s:9698
+step:3/500 train_loss:15.4192 train_time:2416ms step_avg:805.17ms tok_s:9675
+step:4/500 train_loss:11.8550 train_time:3264ms step_avg:815.88ms tok_s:9662
+step:5/500 train_loss:9.0706 train_time:4108ms step_avg:821.60ms tok_s:9703
+step:6/500 train_loss:7.3289 train_time:4958ms step_avg:826.31ms tok_s:9642
+step:7/500 train_loss:6.6111 train_time:5850ms step_avg:835.72ms tok_s:9185
+step:8/500 train_loss:6.5882 train_time:6760ms step_avg:844.95ms tok_s:9012
+step:9/500 train_loss:6.3323 train_time:7671ms step_avg:852.32ms tok_s:8995
+step:10/500 train_loss:6.2239 train_time:8572ms step_avg:857.17ms tok_s:9099
+step:200/500 train_loss:3.8214 train_time:181203ms step_avg:906.02ms tok_s:9055
+step:400/500 train_loss:3.4872 train_time:364710ms step_avg:911.78ms tok_s:8966
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.4186 val_bpb:2.0576 train_time:483231ms step_avg:966.46ms
+saved_model:logs/baseline_500_seed1338_mlx_model.npz bytes:67212188
+serialized_model_int8_zlib:10706773 bytes (payload:17178912 raw_pickle:17188361 payload_ratio:3.91x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.4202 val_bpb:2.0586 eval_time:21256ms
+final_int8_zlib_roundtrip_exact val_loss:3.42015958 val_bpb:2.05855428
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:38:16] END RUN: baseline_500_seed1338
+======================================================================
+
+======================================================================
+[2026-04-22 03:38:16] SUMMARY EXTRACT: baseline_500_seed1338
+======================================================================
+run_id:baseline_500_seed1338
+model_params:17059912 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:54 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.8214 train_time:181203ms step_avg:906.02ms tok_s:9055
+step:400/500 train_loss:3.4872 train_time:364710ms step_avg:911.78ms tok_s:8966
+step:500/500 val_loss:3.4186 val_bpb:2.0576 train_time:483231ms step_avg:966.46ms
+saved_model:logs/baseline_500_seed1338_mlx_model.npz bytes:67212188
+serialized_model_int8_zlib:10706773 bytes (payload:17178912 raw_pickle:17188361 payload_ratio:3.91x)
+final_int8_zlib_roundtrip_exact val_loss:3.42015958 val_bpb:2.05855428
+
+======================================================================
+[2026-04-22 03:38:16] BEGIN RUN: jsa_last3_500_seed1338
+======================================================================
+COMMAND: env RUN_ID=jsa_last3_500_seed1338 SEED=1338 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last3_500_seed1338.txt
+run_id:jsa_last3_500_seed1338
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9423 train_time:1597ms step_avg:1596.63ms tok_s:5131
+step:2/500 train_loss:9.4723 train_time:3421ms step_avg:1710.52ms tok_s:4491
+step:3/500 train_loss:8.0699 train_time:5192ms step_avg:1730.68ms tok_s:4626
+step:4/500 train_loss:7.6260 train_time:6997ms step_avg:1749.15ms tok_s:4540
+step:5/500 train_loss:7.2945 train_time:8818ms step_avg:1763.64ms tok_s:4498
+step:6/500 train_loss:7.1182 train_time:10705ms step_avg:1784.12ms tok_s:4343
+step:7/500 train_loss:6.8796 train_time:12549ms step_avg:1792.64ms tok_s:4444
+step:8/500 train_loss:6.6677 train_time:14380ms step_avg:1797.53ms tok_s:4473
+step:9/500 train_loss:6.5772 train_time:16143ms step_avg:1793.71ms tok_s:4647
+step:10/500 train_loss:6.3939 train_time:17942ms step_avg:1794.19ms tok_s:4556
+step:200/500 train_loss:3.6772 train_time:162973ms step_avg:814.86ms tok_s:11314
+step:400/500 train_loss:3.2342 train_time:307848ms step_avg:769.62ms tok_s:11328
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1559 val_bpb:1.8995 train_time:380079ms step_avg:760.16ms
+saved_model:logs/jsa_last3_500_seed1338_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9321211 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1579 val_bpb:1.9007 eval_time:8207ms
+final_int8_zlib_roundtrip_exact val_loss:3.15788415 val_bpb:1.90069374
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:45:28] END RUN: jsa_last3_500_seed1338
+======================================================================
+
+======================================================================
+[2026-04-22 03:45:28] SUMMARY EXTRACT: jsa_last3_500_seed1338
+======================================================================
+run_id:jsa_last3_500_seed1338
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6772 train_time:162973ms step_avg:814.86ms tok_s:11314
+step:400/500 train_loss:3.2342 train_time:307848ms step_avg:769.62ms tok_s:11328
+step:500/500 val_loss:3.1559 val_bpb:1.8995 train_time:380079ms step_avg:760.16ms
+saved_model:logs/jsa_last3_500_seed1338_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9321211 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.15788415 val_bpb:1.90069374
+
+======================================================================
+[2026-04-22 03:45:28] BEGIN RUN: jsa_last2_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last2_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=2 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last2_500_seed1337.txt
+run_id:jsa_last2_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:15502392 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:52 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9425 train_time:633ms step_avg:633.20ms tok_s:12938
+step:2/500 train_loss:9.5188 train_time:1368ms step_avg:684.13ms tok_s:11150
+step:3/500 train_loss:8.4555 train_time:2102ms step_avg:700.62ms tok_s:11171
+step:4/500 train_loss:8.9248 train_time:2837ms step_avg:709.24ms tok_s:11147
+step:5/500 train_loss:8.8735 train_time:3574ms step_avg:714.72ms tok_s:11124
+step:6/500 train_loss:8.4021 train_time:4308ms step_avg:718.06ms tok_s:11151
+step:7/500 train_loss:7.7082 train_time:5048ms step_avg:721.14ms tok_s:11077
+step:8/500 train_loss:7.2521 train_time:5784ms step_avg:722.96ms tok_s:11138
+step:9/500 train_loss:6.8650 train_time:6523ms step_avg:724.83ms tok_s:11078
+step:10/500 train_loss:6.6167 train_time:7264ms step_avg:726.36ms tok_s:11071
+step:200/500 train_loss:3.6674 train_time:155872ms step_avg:779.36ms tok_s:10598
+step:400/500 train_loss:3.2081 train_time:312063ms step_avg:780.16ms tok_s:10616
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1404 val_bpb:1.8902 train_time:389978ms step_avg:779.96ms
+saved_model:logs/jsa_last2_500_seed1337_mlx_model.npz bytes:60981672
+serialized_model_int8_zlib:9990361 bytes (payload:15630560 raw_pickle:15639424 payload_ratio:3.90x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1426 val_bpb:1.8915 eval_time:8678ms
+final_int8_zlib_roundtrip_exact val_loss:3.14256732 val_bpb:1.89147472
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:52:31] END RUN: jsa_last2_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 03:52:31] SUMMARY EXTRACT: jsa_last2_500_seed1337
+======================================================================
+run_id:jsa_last2_500_seed1337
+model_params:15502392 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:52 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6674 train_time:155872ms step_avg:779.36ms tok_s:10598
+step:400/500 train_loss:3.2081 train_time:312063ms step_avg:780.16ms tok_s:10616
+step:500/500 val_loss:3.1404 val_bpb:1.8902 train_time:389978ms step_avg:779.96ms
+saved_model:logs/jsa_last2_500_seed1337_mlx_model.npz bytes:60981672
+serialized_model_int8_zlib:9990361 bytes (payload:15630560 raw_pickle:15639424 payload_ratio:3.90x)
+final_int8_zlib_roundtrip_exact val_loss:3.14256732 val_bpb:1.89147472
+
+======================================================================
+[2026-04-22 03:52:31] BEGIN RUN: jsa_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last3_500_seed1337.txt
+run_id:jsa_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:613ms step_avg:612.52ms tok_s:13375
+step:2/500 train_loss:9.6075 train_time:1332ms step_avg:666.21ms tok_s:11387
+step:3/500 train_loss:8.6204 train_time:2057ms step_avg:685.78ms tok_s:11308
+step:4/500 train_loss:8.9528 train_time:2783ms step_avg:695.73ms tok_s:11298
+step:5/500 train_loss:8.4836 train_time:3513ms step_avg:702.62ms tok_s:11227
+step:6/500 train_loss:8.1976 train_time:4240ms step_avg:706.70ms tok_s:11275
+step:7/500 train_loss:7.8175 train_time:4969ms step_avg:709.83ms tok_s:11253
+step:8/500 train_loss:7.5227 train_time:5688ms step_avg:710.99ms tok_s:11399
+step:9/500 train_loss:7.2976 train_time:6409ms step_avg:712.07ms tok_s:11375
+step:10/500 train_loss:6.9988 train_time:7128ms step_avg:712.82ms tok_s:11392
+step:200/500 train_loss:3.6927 train_time:144107ms step_avg:720.53ms tok_s:11329
+step:400/500 train_loss:3.2569 train_time:288264ms step_avg:720.66ms tok_s:12176
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1670 val_bpb:1.9062 train_time:365893ms step_avg:731.79ms
+saved_model:logs/jsa_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9691547 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1702 val_bpb:1.9081 eval_time:8725ms
+final_int8_zlib_roundtrip_exact val_loss:3.17020571 val_bpb:1.90810995
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 03:59:36] END RUN: jsa_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 03:59:36] SUMMARY EXTRACT: jsa_last3_500_seed1337
+======================================================================
+run_id:jsa_last3_500_seed1337
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6717 train_time:165127ms step_avg:825.64ms tok_s:11063
+step:400/500 train_loss:3.2021 train_time:313250ms step_avg:783.12ms tok_s:11076
+step:500/500 val_loss:3.0801 val_bpb:1.8539 train_time:387407ms step_avg:774.81ms
+saved_model:logs/jsa_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9450584 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.08363010 val_bpb:1.85600109
+run_id:jsa_last3_500_seed1337
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6927 train_time:144107ms step_avg:720.53ms tok_s:11329
+step:400/500 train_loss:3.2569 train_time:288264ms step_avg:720.66ms tok_s:12176
+step:500/500 val_loss:3.1670 val_bpb:1.9062 train_time:365893ms step_avg:731.79ms
+saved_model:logs/jsa_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9691547 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.17020571 val_bpb:1.90810995
+
+======================================================================
+[2026-04-22 03:59:36] BEGIN RUN: jsa_last4_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last4_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=4 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last4_500_seed1337.txt
+run_id:jsa_last4_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:13944872 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:50 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9438 train_time:547ms step_avg:546.97ms tok_s:14977
+step:2/500 train_loss:9.4757 train_time:1203ms step_avg:601.43ms tok_s:12493
+step:3/500 train_loss:8.8688 train_time:1869ms step_avg:622.94ms tok_s:12305
+step:4/500 train_loss:9.1980 train_time:2536ms step_avg:634.06ms tok_s:12277
+step:5/500 train_loss:8.7660 train_time:3244ms step_avg:648.79ms tok_s:11578
+step:6/500 train_loss:8.2211 train_time:3951ms step_avg:658.43ms tok_s:11602
+step:7/500 train_loss:7.6856 train_time:4655ms step_avg:665.06ms tok_s:11632
+step:8/500 train_loss:7.2458 train_time:5375ms step_avg:671.90ms tok_s:11390
+step:9/500 train_loss:7.1000 train_time:6087ms step_avg:676.36ms tok_s:11513
+step:10/500 train_loss:6.7934 train_time:6814ms step_avg:681.42ms tok_s:11273
+step:200/500 train_loss:3.8278 train_time:138571ms step_avg:692.85ms tok_s:11850
+step:400/500 train_loss:3.3617 train_time:275150ms step_avg:687.88ms tok_s:12302
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.2673 val_bpb:1.9666 train_time:342388ms step_avg:684.78ms
+saved_model:logs/jsa_last4_500_seed1337_mlx_model.npz bytes:54751156
+serialized_model_int8_zlib:9210497 bytes (payload:14082208 raw_pickle:14090355 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.2732 val_bpb:1.9701 eval_time:7535ms
+final_int8_zlib_roundtrip_exact val_loss:3.27321926 val_bpb:1.97011261
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:05:47] END RUN: jsa_last4_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:05:47] SUMMARY EXTRACT: jsa_last4_500_seed1337
+======================================================================
+run_id:jsa_last4_500_seed1337
+model_params:13944872 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:50 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.8278 train_time:138571ms step_avg:692.85ms tok_s:11850
+step:400/500 train_loss:3.3617 train_time:275150ms step_avg:687.88ms tok_s:12302
+step:500/500 val_loss:3.2673 val_bpb:1.9666 train_time:342388ms step_avg:684.78ms
+saved_model:logs/jsa_last4_500_seed1337_mlx_model.npz bytes:54751156
+serialized_model_int8_zlib:9210497 bytes (payload:14082208 raw_pickle:14090355 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.27321926 val_bpb:1.97011261
+
+======================================================================
+[2026-04-22 04:05:47] BEGIN RUN: jsa_last5_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last5_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=5 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last5_500_seed1337.txt
+run_id:jsa_last5_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:13166112 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:49 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9476 train_time:483ms step_avg:483.42ms tok_s:16946
+step:2/500 train_loss:9.5211 train_time:1051ms step_avg:525.31ms tok_s:14446
+step:3/500 train_loss:8.7872 train_time:1619ms step_avg:539.60ms tok_s:14422
+step:4/500 train_loss:9.1889 train_time:2186ms step_avg:546.60ms tok_s:14440
+step:5/500 train_loss:8.6225 train_time:2762ms step_avg:552.49ms tok_s:14226
+step:6/500 train_loss:8.2801 train_time:3336ms step_avg:556.03ms tok_s:14281
+step:7/500 train_loss:8.3813 train_time:3959ms step_avg:565.58ms tok_s:13155
+step:8/500 train_loss:8.0160 train_time:4582ms step_avg:572.80ms tok_s:13151
+step:9/500 train_loss:7.7237 train_time:5209ms step_avg:578.81ms tok_s:13079
+step:10/500 train_loss:7.4229 train_time:5832ms step_avg:583.22ms tok_s:13162
+step:200/500 train_loss:3.9121 train_time:122914ms step_avg:614.57ms tok_s:13179
+step:400/500 train_loss:3.4946 train_time:246130ms step_avg:615.32ms tok_s:13429
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.3922 val_bpb:2.0417 train_time:307490ms step_avg:614.98ms
+saved_model:logs/jsa_last5_500_seed1337_mlx_model.npz bytes:51635898
+serialized_model_int8_zlib:8824176 bytes (payload:13308032 raw_pickle:13315912 payload_ratio:3.88x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.3967 val_bpb:2.0445 eval_time:6985ms
+final_int8_zlib_roundtrip_exact val_loss:3.39673357 val_bpb:2.04445443
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:11:21] END RUN: jsa_last5_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:11:21] SUMMARY EXTRACT: jsa_last5_500_seed1337
+======================================================================
+run_id:jsa_last5_500_seed1337
+model_params:13166112 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:49 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.9121 train_time:122914ms step_avg:614.57ms tok_s:13179
+step:400/500 train_loss:3.4946 train_time:246130ms step_avg:615.32ms tok_s:13429
+step:500/500 val_loss:3.3922 val_bpb:2.0417 train_time:307490ms step_avg:614.98ms
+saved_model:logs/jsa_last5_500_seed1337_mlx_model.npz bytes:51635898
+serialized_model_int8_zlib:8824176 bytes (payload:13308032 raw_pickle:13315912 payload_ratio:3.88x)
+final_int8_zlib_roundtrip_exact val_loss:3.39673357 val_bpb:2.04445443
+
+======================================================================
+[2026-04-22 04:11:21] BEGIN RUN: jsa_last9_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_last9_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=9 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_last9_500_seed1337.txt
+run_id:jsa_last9_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:10051072 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:45 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9426 train_time:289ms step_avg:288.82ms tok_s:28364
+step:2/500 train_loss:9.4544 train_time:669ms step_avg:334.53ms tok_s:21554
+step:3/500 train_loss:8.5379 train_time:1071ms step_avg:357.14ms tok_s:20374
+step:4/500 train_loss:9.0572 train_time:1483ms step_avg:370.85ms tok_s:19908
+step:5/500 train_loss:8.6180 train_time:1881ms step_avg:376.22ms tok_s:20626
+step:6/500 train_loss:8.1916 train_time:2286ms step_avg:381.06ms tok_s:20241
+step:7/500 train_loss:7.8566 train_time:2690ms step_avg:384.23ms tok_s:20338
+step:8/500 train_loss:7.6582 train_time:3095ms step_avg:386.93ms tok_s:20208
+step:9/500 train_loss:7.6658 train_time:3492ms step_avg:387.97ms tok_s:20701
+step:10/500 train_loss:7.3545 train_time:3899ms step_avg:389.86ms tok_s:20157
+step:200/500 train_loss:5.9108 train_time:79502ms step_avg:397.51ms tok_s:20673
+step:400/500 train_loss:5.5786 train_time:159245ms step_avg:398.11ms tok_s:21011
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:5.2370 val_bpb:3.1521 train_time:199073ms step_avg:398.15ms
+saved_model:logs/jsa_last9_500_seed1337_mlx_model.npz bytes:39174866
+serialized_model_int8_zlib:6322971 bytes (payload:10211328 raw_pickle:10218011 payload_ratio:3.83x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:5.2441 val_bpb:3.1564 eval_time:5703ms
+final_int8_zlib_roundtrip_exact val_loss:5.24413199 val_bpb:3.15638205
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:14:59] END RUN: jsa_last9_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:14:59] SUMMARY EXTRACT: jsa_last9_500_seed1337
+======================================================================
+run_id:jsa_last9_500_seed1337
+model_params:10051072 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:45 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:5.9108 train_time:79502ms step_avg:397.51ms tok_s:20673
+step:400/500 train_loss:5.5786 train_time:159245ms step_avg:398.11ms tok_s:21011
+step:500/500 val_loss:5.2370 val_bpb:3.1521 train_time:199073ms step_avg:398.15ms
+saved_model:logs/jsa_last9_500_seed1337_mlx_model.npz bytes:39174866
+serialized_model_int8_zlib:6322971 bytes (payload:10211328 raw_pickle:10218011 payload_ratio:3.83x)
+final_int8_zlib_roundtrip_exact val_loss:5.24413199 val_bpb:3.15638205
+
+======================================================================
+[2026-04-22 04:14:59] BEGIN RUN: jsa_rank2_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_rank2_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=2 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_rank2_last3_500_seed1337.txt
+run_id:jsa_rank2_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14714416 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:572ms step_avg:572.09ms tok_s:14320
+step:2/500 train_loss:9.6967 train_time:1304ms step_avg:652.09ms tok_s:11193
+step:3/500 train_loss:8.7249 train_time:2028ms step_avg:675.94ms tok_s:11329
+step:4/500 train_loss:9.1554 train_time:2743ms step_avg:685.76ms tok_s:11458
+step:5/500 train_loss:8.8405 train_time:3461ms step_avg:692.20ms tok_s:11418
+step:6/500 train_loss:8.5035 train_time:4186ms step_avg:697.72ms tok_s:11302
+step:7/500 train_loss:8.0832 train_time:4907ms step_avg:701.03ms tok_s:11371
+step:8/500 train_loss:7.5414 train_time:5626ms step_avg:703.25ms tok_s:11404
+step:9/500 train_loss:7.1954 train_time:6357ms step_avg:706.33ms tok_s:11215
+step:10/500 train_loss:6.8587 train_time:7076ms step_avg:707.57ms tok_s:11406
+step:200/500 train_loss:3.8112 train_time:143167ms step_avg:715.83ms tok_s:11355
+step:400/500 train_loss:3.5608 train_time:286582ms step_avg:716.45ms tok_s:11319
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.5025 val_bpb:2.1081 train_time:358253ms step_avg:716.51ms
+saved_model:logs/jsa_rank2_last3_500_seed1337_mlx_model.npz bytes:57829550
+serialized_model_int8_zlib:9617954 bytes (payload:14837952 raw_pickle:14846375 payload_ratio:3.90x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.5027 val_bpb:2.1082 eval_time:7721ms
+final_int8_zlib_roundtrip_exact val_loss:3.50271566 val_bpb:2.10824382
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:21:27] END RUN: jsa_rank2_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:21:27] SUMMARY EXTRACT: jsa_rank2_last3_500_seed1337
+======================================================================
+run_id:jsa_rank2_last3_500_seed1337
+model_params:14714416 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.8112 train_time:143167ms step_avg:715.83ms tok_s:11355
+step:400/500 train_loss:3.5608 train_time:286582ms step_avg:716.45ms tok_s:11319
+step:500/500 val_loss:3.5025 val_bpb:2.1081 train_time:358253ms step_avg:716.51ms
+saved_model:logs/jsa_rank2_last3_500_seed1337_mlx_model.npz bytes:57829550
+serialized_model_int8_zlib:9617954 bytes (payload:14837952 raw_pickle:14846375 payload_ratio:3.90x)
+final_int8_zlib_roundtrip_exact val_loss:3.50271566 val_bpb:2.10824382
+
+======================================================================
+[2026-04-22 04:21:27] BEGIN RUN: jsa_rank4_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_rank4_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_rank4_last3_500_seed1337.txt
+run_id:jsa_rank4_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:567ms step_avg:566.72ms tok_s:14455
+step:2/500 train_loss:9.6238 train_time:1238ms step_avg:618.81ms tok_s:12217
+step:3/500 train_loss:8.6567 train_time:1910ms step_avg:636.72ms tok_s:12186
+step:4/500 train_loss:9.0503 train_time:2584ms step_avg:645.93ms tok_s:12166
+step:5/500 train_loss:8.5006 train_time:3258ms step_avg:651.62ms tok_s:12152
+step:6/500 train_loss:8.2761 train_time:3942ms step_avg:656.99ms tok_s:11982
+step:7/500 train_loss:7.8579 train_time:4616ms step_avg:659.40ms tok_s:12161
+step:8/500 train_loss:7.4399 train_time:5283ms step_avg:660.35ms tok_s:12286
+step:9/500 train_loss:7.5532 train_time:5947ms step_avg:660.81ms tok_s:12332
+step:10/500 train_loss:7.0877 train_time:6617ms step_avg:661.66ms tok_s:12243
+step:200/500 train_loss:3.7420 train_time:149054ms step_avg:745.27ms tok_s:11393
+step:400/500 train_loss:3.2854 train_time:293025ms step_avg:732.56ms tok_s:11212
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1942 val_bpb:1.9225 train_time:366333ms step_avg:732.67ms
+saved_model:logs/jsa_rank4_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9639925 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1972 val_bpb:1.9243 eval_time:8197ms
+final_int8_zlib_roundtrip_exact val_loss:3.19715879 val_bpb:1.92433269
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:42:21] END RUN: jsa_rank4_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:42:21] SUMMARY EXTRACT: jsa_rank4_last3_500_seed1337
+======================================================================
+run_id:jsa_rank4_last3_500_seed1337
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.7420 train_time:149054ms step_avg:745.27ms tok_s:11393
+step:400/500 train_loss:3.2854 train_time:293025ms step_avg:732.56ms tok_s:11212
+step:500/500 val_loss:3.1942 val_bpb:1.9225 train_time:366333ms step_avg:732.67ms
+saved_model:logs/jsa_rank4_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9639925 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.19715879 val_bpb:1.92433269
+
+======================================================================
+[2026-04-22 04:42:21] BEGIN RUN: jsa_rank8_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_rank8_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=8 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_rank8_last3_500_seed1337.txt
+run_id:jsa_rank8_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14742064 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:574ms step_avg:573.76ms tok_s:14278
+step:2/500 train_loss:9.4537 train_time:1251ms step_avg:625.56ms tok_s:12098
+step:3/500 train_loss:8.5618 train_time:1933ms step_avg:644.23ms tok_s:12022
+step:4/500 train_loss:8.6781 train_time:2632ms step_avg:658.08ms tok_s:11712
+step:5/500 train_loss:8.0230 train_time:3332ms step_avg:666.46ms tok_s:11707
+step:6/500 train_loss:8.1615 train_time:4029ms step_avg:671.51ms tok_s:11760
+step:7/500 train_loss:7.3418 train_time:4725ms step_avg:675.01ms tok_s:11772
+step:8/500 train_loss:7.0373 train_time:5430ms step_avg:678.78ms tok_s:11620
+step:9/500 train_loss:7.0042 train_time:6124ms step_avg:680.39ms tok_s:11819
+step:10/500 train_loss:6.8702 train_time:6829ms step_avg:682.90ms tok_s:11615
+step:200/500 train_loss:3.2826 train_time:146946ms step_avg:734.73ms tok_s:11129
+step:400/500 train_loss:2.8481 train_time:293355ms step_avg:733.39ms tok_s:11330
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:2.7353 val_bpb:1.6463 train_time:366827ms step_avg:733.65ms
+saved_model:logs/jsa_rank8_last3_500_seed1337_mlx_model.npz bytes:57940142
+serialized_model_int8_zlib:9729660 bytes (payload:14893248 raw_pickle:14901680 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:2.7387 val_bpb:1.6484 eval_time:8038ms
+final_int8_zlib_roundtrip_exact val_loss:2.73870245 val_bpb:1.64839315
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:48:58] END RUN: jsa_rank8_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:48:58] SUMMARY EXTRACT: jsa_rank8_last3_500_seed1337
+======================================================================
+run_id:jsa_rank8_last3_500_seed1337
+model_params:14742064 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.2826 train_time:146946ms step_avg:734.73ms tok_s:11129
+step:400/500 train_loss:2.8481 train_time:293355ms step_avg:733.39ms tok_s:11330
+step:500/500 val_loss:2.7353 val_bpb:1.6463 train_time:366827ms step_avg:733.65ms
+saved_model:logs/jsa_rank8_last3_500_seed1337_mlx_model.npz bytes:57940142
+serialized_model_int8_zlib:9729660 bytes (payload:14893248 raw_pickle:14901680 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:2.73870245 val_bpb:1.64839315
+
+======================================================================
+[2026-04-22 04:48:58] BEGIN RUN: jsa_rank16_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_rank16_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=16 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_rank16_last3_500_seed1337.txt
+run_id:jsa_rank16_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14778928 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:574ms step_avg:574.36ms tok_s:14263
+step:2/500 train_loss:9.2832 train_time:1348ms step_avg:673.77ms tok_s:10598
+step:3/500 train_loss:8.2277 train_time:2038ms step_avg:679.47ms tok_s:11860
+step:4/500 train_loss:7.9525 train_time:2757ms step_avg:689.34ms tok_s:11397
+step:5/500 train_loss:7.4347 train_time:3491ms step_avg:698.17ms tok_s:11173
+step:6/500 train_loss:7.1870 train_time:4226ms step_avg:704.39ms tok_s:11142
+step:7/500 train_loss:6.6837 train_time:4971ms step_avg:710.11ms tok_s:11008
+step:8/500 train_loss:6.4209 train_time:5716ms step_avg:714.54ms tok_s:10995
+step:9/500 train_loss:6.4409 train_time:6454ms step_avg:717.14ms tok_s:11107
+step:10/500 train_loss:6.3020 train_time:7197ms step_avg:719.73ms tok_s:11032
+step:200/500 train_loss:2.6594 train_time:147076ms step_avg:735.38ms tok_s:11251
+step:400/500 train_loss:1.6277 train_time:291439ms step_avg:728.60ms tok_s:11410
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:1.1135 val_bpb:0.6702 train_time:363804ms step_avg:727.61ms
+saved_model:logs/jsa_rank16_last3_500_seed1337_mlx_model.npz bytes:58087610
+serialized_model_int8_zlib:9834526 bytes (payload:14966976 raw_pickle:14975408 payload_ratio:3.88x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:1.1178 val_bpb:0.6728 eval_time:8154ms
+final_int8_zlib_roundtrip_exact val_loss:1.11784708 val_bpb:0.67281916
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 04:55:32] END RUN: jsa_rank16_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 04:55:32] SUMMARY EXTRACT: jsa_rank16_last3_500_seed1337
+======================================================================
+run_id:jsa_rank16_last3_500_seed1337
+model_params:14778928 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:2.6594 train_time:147076ms step_avg:735.38ms tok_s:11251
+step:400/500 train_loss:1.6277 train_time:291439ms step_avg:728.60ms tok_s:11410
+step:500/500 val_loss:1.1135 val_bpb:0.6702 train_time:363804ms step_avg:727.61ms
+saved_model:logs/jsa_rank16_last3_500_seed1337_mlx_model.npz bytes:58087610
+serialized_model_int8_zlib:9834526 bytes (payload:14966976 raw_pickle:14975408 payload_ratio:3.88x)
+final_int8_zlib_roundtrip_exact val_loss:1.11784708 val_bpb:0.67281916
+
+======================================================================
+[2026-04-22 04:55:32] BEGIN RUN: jsa_localk1_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_localk1_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=1 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_localk1_last3_500_seed1337.txt
+run_id:jsa_localk1_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14722096 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:584ms step_avg:583.53ms tok_s:14039
+step:2/500 train_loss:9.5997 train_time:1334ms step_avg:667.22ms tok_s:10915
+step:3/500 train_loss:8.6373 train_time:2067ms step_avg:688.98ms tok_s:11187
+step:4/500 train_loss:8.9558 train_time:2802ms step_avg:700.55ms tok_s:11146
+step:5/500 train_loss:8.4448 train_time:3544ms step_avg:708.74ms tok_s:11052
+step:6/500 train_loss:8.1814 train_time:4286ms step_avg:714.34ms tok_s:11043
+step:7/500 train_loss:7.7705 train_time:5032ms step_avg:718.83ms tok_s:10992
+step:8/500 train_loss:7.3684 train_time:5771ms step_avg:721.39ms tok_s:11088
+step:9/500 train_loss:7.2525 train_time:6517ms step_avg:724.06ms tok_s:10998
+step:10/500 train_loss:6.9497 train_time:7257ms step_avg:725.73ms tok_s:11067
+step:200/500 train_loss:3.6204 train_time:144738ms step_avg:723.69ms tok_s:11281
+step:400/500 train_loss:3.2135 train_time:289541ms step_avg:723.85ms tok_s:11255
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1393 val_bpb:1.8895 train_time:361551ms step_avg:723.10ms
+saved_model:logs/jsa_localk1_last3_500_seed1337_mlx_model.npz bytes:57860264
+serialized_model_int8_zlib:9688326 bytes (payload:14853312 raw_pickle:14861735 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1444 val_bpb:1.8926 eval_time:7809ms
+final_int8_zlib_roundtrip_exact val_loss:3.14442887 val_bpb:1.89259517
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 05:02:04] END RUN: jsa_localk1_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 05:02:04] SUMMARY EXTRACT: jsa_localk1_last3_500_seed1337
+======================================================================
+run_id:jsa_localk1_last3_500_seed1337
+model_params:14722096 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6204 train_time:144738ms step_avg:723.69ms tok_s:11281
+step:400/500 train_loss:3.2135 train_time:289541ms step_avg:723.85ms tok_s:11255
+step:500/500 val_loss:3.1393 val_bpb:1.8895 train_time:361551ms step_avg:723.10ms
+saved_model:logs/jsa_localk1_last3_500_seed1337_mlx_model.npz bytes:57860264
+serialized_model_int8_zlib:9688326 bytes (payload:14853312 raw_pickle:14861735 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.14442887 val_bpb:1.89259517
+
+======================================================================
+[2026-04-22 05:02:04] BEGIN RUN: jsa_localk2_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_localk2_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_localk2_last3_500_seed1337.txt
+run_id:jsa_localk2_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:573ms step_avg:572.98ms tok_s:14297
+step:2/500 train_loss:9.6121 train_time:1249ms step_avg:624.66ms tok_s:12115
+step:3/500 train_loss:8.6605 train_time:1926ms step_avg:641.90ms tok_s:12116
+step:4/500 train_loss:9.0627 train_time:2601ms step_avg:650.29ms tok_s:12131
+step:5/500 train_loss:8.5092 train_time:3277ms step_avg:655.35ms tok_s:12129
+step:6/500 train_loss:8.2712 train_time:3950ms step_avg:658.29ms tok_s:12176
+step:7/500 train_loss:7.8748 train_time:4625ms step_avg:660.76ms tok_s:12127
+step:8/500 train_loss:7.5051 train_time:5300ms step_avg:662.53ms tok_s:12141
+step:9/500 train_loss:7.5593 train_time:5977ms step_avg:664.13ms tok_s:12105
+step:10/500 train_loss:7.0966 train_time:6651ms step_avg:665.11ms tok_s:12159
+step:200/500 train_loss:3.7524 train_time:144016ms step_avg:720.08ms tok_s:11137
+step:400/500 train_loss:3.2747 train_time:288357ms step_avg:720.89ms tok_s:11399
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1563 val_bpb:1.8997 train_time:360099ms step_avg:720.20ms
+saved_model:logs/jsa_localk2_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9680683 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1607 val_bpb:1.9024 eval_time:7772ms
+final_int8_zlib_roundtrip_exact val_loss:3.16071653 val_bpb:1.90239852
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 05:08:34] END RUN: jsa_localk2_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 05:08:34] SUMMARY EXTRACT: jsa_localk2_last3_500_seed1337
+======================================================================
+run_id:jsa_localk2_last3_500_seed1337
+model_params:14723632 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.7524 train_time:144016ms step_avg:720.08ms tok_s:11137
+step:400/500 train_loss:3.2747 train_time:288357ms step_avg:720.89ms tok_s:11399
+step:500/500 val_loss:3.1563 val_bpb:1.8997 train_time:360099ms step_avg:720.20ms
+saved_model:logs/jsa_localk2_last3_500_seed1337_mlx_model.npz bytes:57866414
+serialized_model_int8_zlib:9680683 bytes (payload:14856384 raw_pickle:14864807 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.16071653 val_bpb:1.90239852
+
+======================================================================
+[2026-04-22 05:08:34] BEGIN RUN: jsa_localk4_last3_500_seed1337
+======================================================================
+COMMAND: env RUN_ID=jsa_localk4_last3_500_seed1337 SEED=1337 USE_JSA=1 JSA_RANK=4 JSA_LOCAL_K=4 JSA_LAST_N_LAYERS=3 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 VAL_MAX_SEQS=512 python3 train_gpt_mlx_jsa_replace.py
+logs/jsa_localk4_last3_500_seed1337.txt
+run_id:jsa_localk4_last3_500_seed1337
+mlx_version:0.31.1
+train_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_train_*.bin
+val_loader:shards pattern=./data/datasets/fineweb10B_sp1024/fineweb_val_*.bin tokens:524288
+WARNING: train_loader:subset dataset:fineweb10B_sp1024 train_shards:10/195 new epochs will arrive sooner than the full dataset
+tokenizer_path:./data/tokenizers/fineweb_1024_bpe.model
+model_params:14726704 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+iterations:500 train_batch_tokens:8192 grad_accum_steps:8 microbatch_tokens:1024 microbatch_batch_size:1 val_batch_size:8192 warmup_steps:20 max_wallclock_seconds:600.000
+mlx_max_microbatch_tokens:8192
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path=./data/tokenizers/fineweb_1024_bpe.model
+compute_dtype:mlx.core.bfloat16 compile:True
+dtypes tok_emb:mlx.core.bfloat16 linear_weight:mlx.core.bfloat16 skip_weights:mlx.core.float32
+warmup_step:1/20
+warmup_step:2/20
+warmup_step:3/20
+warmup_step:4/20
+warmup_step:5/20
+warmup_step:6/20
+warmup_step:7/20
+warmup_step:8/20
+warmup_step:9/20
+warmup_step:10/20
+warmup_step:11/20
+warmup_step:12/20
+warmup_step:13/20
+warmup_step:14/20
+warmup_step:15/20
+warmup_step:16/20
+warmup_step:17/20
+warmup_step:18/20
+warmup_step:19/20
+warmup_step:20/20
+step:1/500 train_loss:6.9444 train_time:582ms step_avg:582.16ms tok_s:14072
+step:2/500 train_loss:9.6191 train_time:1264ms step_avg:631.86ms tok_s:12022
+step:3/500 train_loss:8.6653 train_time:1946ms step_avg:648.74ms tok_s:12019
+step:4/500 train_loss:9.0419 train_time:2626ms step_avg:656.62ms tok_s:12045
+step:5/500 train_loss:8.5026 train_time:3310ms step_avg:661.92ms tok_s:11995
+step:6/500 train_loss:8.2525 train_time:3988ms step_avg:664.66ms tok_s:12079
+step:7/500 train_loss:7.8585 train_time:4670ms step_avg:667.08ms tok_s:12023
+step:8/500 train_loss:7.3261 train_time:5348ms step_avg:668.54ms tok_s:12072
+step:9/500 train_loss:7.4773 train_time:6031ms step_avg:670.07ms tok_s:12009
+step:10/500 train_loss:7.1067 train_time:6711ms step_avg:671.12ms tok_s:12043
+step:200/500 train_loss:3.6734 train_time:144339ms step_avg:721.70ms tok_s:11370
+step:400/500 train_loss:3.2569 train_time:289646ms step_avg:724.12ms tok_s:11336
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+step:500/500 val_loss:3.1445 val_bpb:1.8926 train_time:361978ms step_avg:723.96ms
+saved_model:logs/jsa_localk4_last3_500_seed1337_mlx_model.npz bytes:57878702
+serialized_model_int8_zlib:9701668 bytes (payload:14862528 raw_pickle:14870951 payload_ratio:3.89x)
+val_progress:1/512
+val_progress:25/512
+val_progress:50/512
+val_progress:75/512
+val_progress:100/512
+val_progress:125/512
+val_progress:150/512
+val_progress:175/512
+val_progress:200/512
+val_progress:225/512
+val_progress:250/512
+val_progress:275/512
+val_progress:300/512
+val_progress:325/512
+val_progress:350/512
+val_progress:375/512
+val_progress:400/512
+val_progress:425/512
+val_progress:450/512
+val_progress:475/512
+val_progress:500/512
+val_progress:512/512
+final_int8_zlib_roundtrip val_loss:3.1490 val_bpb:1.8953 eval_time:8196ms
+final_int8_zlib_roundtrip_exact val_loss:3.14899303 val_bpb:1.89534228
+RUN_STATUS: 0
+
+======================================================================
+[2026-04-22 05:15:06] END RUN: jsa_localk4_last3_500_seed1337
+======================================================================
+
+======================================================================
+[2026-04-22 05:15:06] SUMMARY EXTRACT: jsa_localk4_last3_500_seed1337
+======================================================================
+run_id:jsa_localk4_last3_500_seed1337
+model_params:14726704 vocab_size:1024 layers:9 dim:512 heads:8 kv_heads:4 seq_len:1024 tie_embeddings:True
+optimizer:muon+adam muon_matrix_params:51 scalar_params:37 embed_lr:0.05 matrix_lr:0.04 scalar_lr:0.04 muon_momentum:0.95 muon_steps:5
+step:200/500 train_loss:3.6734 train_time:144339ms step_avg:721.70ms tok_s:11370
+step:400/500 train_loss:3.2569 train_time:289646ms step_avg:724.12ms tok_s:11336
+step:500/500 val_loss:3.1445 val_bpb:1.8926 train_time:361978ms step_avg:723.96ms
+saved_model:logs/jsa_localk4_last3_500_seed1337_mlx_model.npz bytes:57878702
+serialized_model_int8_zlib:9701668 bytes (payload:14862528 raw_pickle:14870951 payload_ratio:3.89x)
+final_int8_zlib_roundtrip_exact val_loss:3.14899303 val_bpb:1.89534228
+
+======================================================================
+[2026-04-22 05:15:06] SUITE COMPLETE
+======================================================================
+Aggregate log written to: logs/jsa_ablation_suite_20260422_031300.log
