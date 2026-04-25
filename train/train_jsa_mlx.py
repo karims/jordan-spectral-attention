@@ -1055,9 +1055,18 @@ def main() -> None:
     )
     log(f"val_bpb:enabled tokenizer_kind=sentencepiece tokenizer_path={args.tokenizer_path}")
     log(f"compute_dtype:{COMPUTE_DTYPE} compile:True")
+    
+    first_attn = model.blocks[0].attn
+    if hasattr(first_attn, "c_q"):
+        linear_dtype = first_attn.c_q.weight.dtype
+    elif hasattr(first_attn, "spectral_gate"):
+        linear_dtype = first_attn.spectral_gate.weight.dtype
+    else:
+        linear_dtype = "unknown"
+
     log(
         f"dtypes tok_emb:{model.tok_emb.weight.dtype} "
-        f"linear_weight:{model.blocks[0].attn.c_q.weight.dtype} "
+        f"linear_weight:{linear_dtype} "
         f"skip_weights:{model.skip_weights.dtype}"
     )
 

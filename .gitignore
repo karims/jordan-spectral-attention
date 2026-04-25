@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Data
+data/datasets/
+data/tokenizers/
+external/
+data/
+parameter-golf/
+
+# ML artifacts
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.bin
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Misc
+.cache/
+tmp/

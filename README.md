@@ -43,11 +43,43 @@ These are **local MLX experiments**. Official Parameter Golf reproduction is pen
 
 Key caveat: these runs used 10 downloaded train shards for local iteration and full validation over the SP8192 validation split. They should not be presented as official leaderboard results until reproduced through the official track path.
 
-## Example command
+## Setup and Example command
+
 
 ```bash
-RUN_ID=jsa_full_rank64_sp8192_fullval_seed1338 DATA_PATH=./data/datasets/fineweb10B_sp8192 TOKENIZER_PATH=./data/tokenizers/fineweb_8192_bpe.model VOCAB_SIZE=8192 SEED=1338 USE_JSA=1 JSA_RANK=64 JSA_LOCAL_K=2 JSA_LAST_N_LAYERS=9 ITERATIONS=500 TRAIN_BATCH_TOKENS=8192 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 python3 train/train_jsa_mlx.py
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
 ```
+Get the data:
+```bash
+chmod +x scripts/setup_sp8192.sh
+bash scripts/setup_sp8192.sh
+```
+
+## Example Run
+**A short 50-step sanity check is included only to verify the standalone repo wiring; headline results use the full 500-step / full-validation runs from the original experiment logs.**
+```bash
+RUN_ID=sanity_check \
+DATA_PATH=./data/datasets/fineweb10B_sp8192 \
+TOKENIZER_PATH=./data/tokenizers/fineweb_8192_bpe.model \
+VOCAB_SIZE=8192 \
+SEED=42 \
+USE_JSA=1 \
+JSA_RANK=64 \
+JSA_LOCAL_K=2 \
+JSA_LAST_N_LAYERS=9 \
+ITERATIONS=50 \
+TRAIN_BATCH_TOKENS=8192 \
+VAL_BATCH_SIZE=8192 \
+VAL_LOSS_EVERY=0 \
+VAL_MAX_SEQS=128 \
+python3 train/train_jsa_mlx.py
+```
+
+## Test
+Tested on Apple Silicon + MLX 0.31.1.
 
 ## Dataset note
 
